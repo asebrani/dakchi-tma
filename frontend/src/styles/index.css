@@ -1,0 +1,24 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Your custom scrollbar and other global tweaks from chooseArtist.html */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #142210;
+}
+::-webkit-scrollbar-thumb {
+  background: #2c3928;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #41543b;
+}
+
+/* You can also define .artist-card-hover here if you want extra effects */
+.artist-card-hover:hover {
+  transform: translateY(-4px);
+  transition: all 0.3s ease;
+}

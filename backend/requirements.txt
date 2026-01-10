@@ -1,0 +1,14 @@
+# Django
+Django>=4.2
+djangorestframework>=3.14
+django-cors-headers>=4.3.0
+
+# Utilities
+python-dotenv==1.0.0
+requests==2.31.0
+pydantic==2.5.0
+pydantic-settings==2.1.0
+
+# Image Recognition
+google-genai
+Pillow
