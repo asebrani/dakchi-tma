@@ -1,0 +1,198 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Light Theme - Clean & Professional */
+    --background: 145 20% 97%;
+    --foreground: 145 40% 10%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 145 40% 10%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 145 40% 10%;
+
+    /* Primary Green - #21d469 */
+    --primary: 145 73% 48%;
+    --primary-foreground: 0 0% 100%;
+
+    /* Secondary - Light surfaces */
+    --secondary: 145 15% 93%;
+    --secondary-foreground: 145 40% 15%;
+
+    /* Muted */
+    --muted: 145 10% 92%;
+    --muted-foreground: 145 15% 40%;
+
+    --accent: 145 73% 48%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    /* Border */
+    --border: 145 15% 88%;
+    --input: 145 10% 90%;
+    --ring: 145 73% 48%;
+
+    --radius: 0.5rem;
+
+    /* Custom tokens */
+    --glow-primary: 0 0 40px hsla(145, 73%, 48%, 0.3);
+    --glow-primary-subtle: 0 0 20px hsla(145, 73%, 48%, 0.15);
+    --gradient-dark: linear-gradient(180deg, hsl(145 20% 97%) 0%, hsl(145 15% 94%) 100%);
+    --grid-color: rgba(0, 0, 0, 0.04);
+  }
+
+  .dark {
+    /* Dark Theme - Original Dark Green */
+    --background: 145 40% 10%;
+    --foreground: 0 0% 100%;
+
+    --card: 150 20% 13%;
+    --card-foreground: 0 0% 100%;
+
+    --popover: 150 20% 13%;
+    --popover-foreground: 0 0% 100%;
+
+    --primary: 145 73% 48%;
+    --primary-foreground: 0 0% 0%;
+
+    --secondary: 150 20% 13%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 150 15% 18%;
+    --muted-foreground: 145 20% 67%;
+
+    --accent: 145 73% 48%;
+    --accent-foreground: 0 0% 0%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 150 18% 19%;
+    --input: 150 15% 18%;
+    --ring: 145 73% 48%;
+
+    /* Custom tokens for dark mode */
+    --glow-primary: 0 0 40px hsla(145, 73%, 48%, 0.4);
+    --glow-primary-subtle: 0 0 20px hsla(145, 73%, 48%, 0.2);
+    --gradient-dark: linear-gradient(180deg, hsl(145 40% 10%) 0%, hsl(145 50% 6%) 100%);
+    --grid-color: rgba(255, 255, 255, 0.04);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  }
+}
+
+@layer components {
+  .auth-background {
+    background: hsl(var(--background));
+    position: relative;
+    min-height: 100vh;
+  }
+
+  .auth-card {
+    background: hsl(var(--card));
+    border: 1px solid hsl(var(--border));
+    border-radius: 0.75rem;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  }
+
+  .glass-card {
+    background: hsl(var(--card));
+    border: 1px solid hsl(var(--border));
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.1);
+  }
+
+  .dark .glass-card {
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  }
+
+  .glow-button {
+    box-shadow: var(--glow-primary-subtle);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .glow-button:hover {
+    box-shadow: var(--glow-primary);
+    transform: translateY(-2px);
+  }
+
+  .input-glow:focus {
+    box-shadow: 0 0 0 2px hsla(141, 76%, 48%, 0.3);
+  }
+
+  .soft-card {
+    background: hsl(var(--muted) / 0.3);
+    border: 1px solid hsl(var(--border));
+    border-radius: 24px;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.1);
+  }
+
+  .dark .soft-card {
+    background: hsla(0, 0%, 100%, 0.03);
+    box-shadow: 0 4px 24px hsla(0, 0%, 0%, 0.2);
+  }
+}
+
+@layer utilities {
+  .animate-fade-in {
+    animation: fadeIn 0.6s ease-out forwards;
+  }
+
+  .animate-fade-in-up {
+    animation: fadeInUp 0.6s ease-out forwards;
+  }
+
+  .animate-scale-in {
+    animation: scaleIn 0.5s ease-out forwards;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes scaleIn {
+    from {
+      opacity: 0;
+      transform: scale(0.95);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  .delay-100 { animation-delay: 0.1s; }
+  .delay-200 { animation-delay: 0.2s; }
+  .delay-300 { animation-delay: 0.3s; }
+  .delay-400 { animation-delay: 0.4s; }
+  .delay-500 { animation-delay: 0.5s; }
+}

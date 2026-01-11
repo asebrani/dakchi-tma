@@ -253,6 +253,7 @@ def generate_playlist_stream(query: str, count: int, image_desc: str = ""):
 			youtube_result["done"] = True
 
 	yield {"type": "status", "message": "Analyzing your mood . . . "}
+	logger.warning("aaaaaaaaaaaaaaa")
 	try:
 		analysis = analyze_user_input(context)
 	except Exception as e:

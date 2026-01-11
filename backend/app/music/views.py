@@ -3,10 +3,6 @@ from app.music.yt_service import get_music_recommendations, search_youtube
 from app.music.ai_service import  analyze_user_input , generate_playlist_stream
 from django.http import JsonResponse, StreamingHttpResponse
 import json
-from app.music.rate_limiter import get_client_ip
-import logging
-
-logger = logging.getLogger(__name__)
 
 def artist_list(request):
 	page = request.GET.get('page', '1')
@@ -129,7 +125,6 @@ def search(request):
 
 
 def stream(request):
-	logger.warning(get_client_ip(request))
 	query = request.GET.get('query', '')
 	image_desc = request.GET.get('image_desc', '')
 	if not query:
