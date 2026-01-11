@@ -188,3 +188,9 @@ def analyze_image(request):
             {"detail": f"Error: {str(e)}"},
             status=500
         )
+@api_view(['POST'])
+def upload_image(request):
+    """
+    Upload an image and save it
+    Returns: image_id, url, analysis
+    """

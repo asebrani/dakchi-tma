@@ -23,6 +23,7 @@ INSTALLED_APPS = [
 	"rest_framework",
 	"app.music",
 	"app.image_recognition",
+	"app.users",
 ]
 
 MIDDLEWARE = [
@@ -67,6 +68,17 @@ ALLOWED_HOSTS = ["localhost", "127.0.0.1", "backend"]
 
 ROOT_URLCONF = "config.urls"
 SECRET_KEY = "dev-secret-key-change-me-1234567890"
+
+# Custom user model
+AUTH_USER_MODEL = 'users.User'
+
+# Database
+DATABASES = {
+	'default': {
+		'ENGINE': 'django.db.backends.sqlite3',
+		'NAME': BASE_DIR / 'database' / 'db.sqlite3',
+	}
+}
 
 # Logging configuration
 LOGGING = {
